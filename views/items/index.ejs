@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商品一覧</title>
+</head>
+<body>
+    <h1>商品一覧</h1>
+    <a href="/items/add">商品登録</a>
+    <p><%= itemCount %>件の商品があります。</p>
+    <ul>
+        <% for(let item of items) { %>
+            <li>
+                <a href="/items/edit/<%= item.id %>">
+                    [<%= item.id %>]
+                    <%= item.name %>
+                </a>
+            </li>
+        <% } %>
+    </ul>
+</body>
+</html>

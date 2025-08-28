@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title><%= item.name %> 商品編集</title>
+</head>
+
+<body>
+  <h1>商品編集</h1>
+  <form action="/items/edit/<%= item.id %>" method="post">
+    <div>
+      <label>
+        商品名:
+        <input type="text" name="name" value="<%= item.name %>" />
+      </label>
+    </div>
+    <div>
+      <label>
+        ジャンル名:
+        <input type="text" name="genre" value="<%= item.genre %>" />
+      </label>
+    </div>
+    <button>送信</button>
+  </form>
+  <div>
+    <form action="/items/delete" method="post">
+      <input type="hidden" name="id" value="<%= item.id %>" />
+      <p>この商品を削除する</p>
+      <button>削除</button>
+    </form>
+  </div>
+</body>
+
+</html>
