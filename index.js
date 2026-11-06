@@ -1,5 +1,6 @@
 import express from 'express';
 import { Client } from 'pg';
+import { readFileSync } from "node:fs";
 
 // データベースの接続情報を記載
 // この情報は講師よりSlackで提供します。
@@ -9,6 +10,10 @@ const client = new Client({
   database: 'postgres',
   password: 'postgres',
   port: 5432,
+  ssl: {
+    ca: readFileSync(new URL('./global-bundle.pem', import.meta.url), 'utf8'),
+    rejectUnauthorized: true,
+  },
 });
 
 // Expressの設定
